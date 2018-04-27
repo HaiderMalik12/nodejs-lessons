@@ -1,9 +1,12 @@
-import User from "../models/user.model";
+import User from "./user.model";
 
 export default {
     find(req, res) {
         const options = {
-            select: '_id firstName'
+            select: '_id firstName lastName email',
+            page: parseInt(req.query.page, 10) || 1,
+            limit: parseInt(req.query.limit, 10) || 10,
+            sort: 'firstName'
         }
         User.paginate({}, options)
             .then(users => {

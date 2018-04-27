@@ -11,5 +11,5 @@ const UserSchema = new mongoose.Schema({
         type: String
     }
 });
-UserSchema.plugin = mongoosePaginate;
+UserSchema.plugin(mongoosePaginate);
 export default mongoose.model('User', UserSchema);
