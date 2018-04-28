@@ -4,8 +4,8 @@ export default {
     find(req, res) {
         const options = {
             select: '_id firstName lastName email',
+            limit: parseInt(req.query.perPage, 10) || 10,
             page: parseInt(req.query.page, 10) || 1,
-            limit: parseInt(req.query.limit, 10) || 10,
             sort: 'firstName'
         }
         User.paginate({}, options)
