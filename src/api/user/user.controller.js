@@ -21,5 +21,13 @@ export default {
       console.error(err);
       return res.status(500).send(err);
     }
+  },
+  async login(req, res) {
+    try {
+      return res.json({ msg: 'TODO: Login' });
+    } catch (err) {
+      console.error(err);
+      return res.status(500).send(err);
+    }
   }
 };
