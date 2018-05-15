@@ -46,5 +46,9 @@ export default {
       console.error(err);
       return res.status(500).send(err);
     }
+  },
+  authenticate(req, res) {
+    console.log(req.isAuthenticated());
+    return res.json(req.user);
   }
 };
