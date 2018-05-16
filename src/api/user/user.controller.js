@@ -50,5 +50,11 @@ export default {
   authenticate(req, res) {
     console.log(req.isAuthenticated());
     return res.json(req.user);
+  },
+  authSuccess(req, res) {
+    //send JWT token
+    console.log(req.isAuthenticated());
+    return res.json(req.user);
+    return res.redirect('/');
   }
 };

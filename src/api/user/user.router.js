@@ -10,3 +10,10 @@ userRouter.get(
   passport.authenticate('jwt', { session: false }),
   userController.authenticate
 );
+
+userRouter.get('/auth/twitter', passport.authenticate('twitter'));
+userRouter.get(
+  '/auth/twitter/callback',
+  passport.authenticate('twitter', { failureRedirect: '/login' }),
+  userController.authSuccess
+);
