@@ -17,3 +17,10 @@ userRouter.get(
   passport.authenticate('twitter', { failureRedirect: '/login' }),
   userController.authSuccess
 );
+
+userRouter.get('/auth/github', passport.authenticate('github'));
+userRouter.get(
+  '/auth/github/callback',
+  passport.authenticate('github', { failureRedirect: '/login' }),
+  userController.authSuccess
+);

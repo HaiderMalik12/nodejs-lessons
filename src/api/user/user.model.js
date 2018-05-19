@@ -9,6 +9,12 @@ const UserSchema = new mongoose.Schema({
     token: String,
     displayName: String,
     username: String
+  },
+  github:{
+    token:String,
+    displayName: String,
+    email: String,
+    id: String
   }
 });
 export default mongoose.model('User', UserSchema);

@@ -8,6 +8,7 @@ import { configureJWTStrategy } from './api/middlewares/passport-jwt';
 import { configTwitterStrategy } from './api/middlewares/passport-twitter';
 import { devConfig } from './config/development';
 import User from './api/user/user.model';
+import { configGithubStrategy } from './api/middlewares/passport-github';
 
 const app = express();
 const PORT = 3000;
@@ -27,6 +28,7 @@ app.use(
 app.use(passport.initialize());
 configureJWTStrategy();
 configTwitterStrategy();
+configGithubStrategy();
 // save user into session
 // req.session.user = {userId}
 passport.serializeUser((user, done) => {
