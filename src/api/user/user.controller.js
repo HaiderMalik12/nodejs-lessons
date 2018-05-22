@@ -3,6 +3,7 @@ import jwt from 'jsonwebtoken';
 import User from './user.model';
 import userService from './user.service';
 import { devConfig } from '../../config/development';
+import {sendEmail} from '../modules/mail';
 
 export default {
   async signup(req, res) {
@@ -56,5 +57,19 @@ export default {
     console.log(req.isAuthenticated());
     return res.json(req.user);
     return res.redirect('/');
+  },
+  async sendEmailToUser(req,res){
+   try{
+    const results = await sendEmail({
+      html: `<h1> Reset password  </h1>`,
+      subject: 'Reset Password',
+      to: 'haider@gmail.com'
+    });
+    return res.json(results);
+   }
+   catch(err){
+     console.error(err);
+     return res.status(500).send(err);
+   }
   }
 };
