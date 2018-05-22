@@ -11,8 +11,8 @@ export const devConfig = {
     callbackURL: 'http://localhost:3000/users/auth/github/callback'
   },
   ethereal:{
-    username: 'pon3254hwfjfez5i@ethereal.email',
-    pass: 'bd3aKqYjBbrPC2styG',
+    username: 'YOUR_USERNAME',
+    pass: 'YOUR_PASSWORD',
     host: 'smtp.ethereal.email',
     port: 587,
   }
