@@ -15,6 +15,12 @@ const UserSchema = new mongoose.Schema({
     displayName: String,
     email: String,
     id: String
+  },
+  google:{
+    token:String,
+    displayName: String,
+    email: String,
+    id: String
   }
 });
 export default mongoose.model('User', UserSchema);

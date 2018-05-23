@@ -24,3 +24,13 @@ userRouter.get(
   passport.authenticate('github', { failureRedirect: '/login' }),
   userController.authSuccess
 );
+userRouter.get('/auth/google',
+ passport.authenticate('google',{
+   scope: ['profile','email']
+ })
+);
+userRouter.get(
+  '/auth/google/callback',
+  passport.authenticate('google', { failureRedirect: '/login' }),
+  userController.authSuccess
+);
