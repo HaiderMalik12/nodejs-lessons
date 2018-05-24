@@ -22,7 +22,9 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "express": "^4.16.3",
+    "express-pdf": "^1.2.2",
     "express-session": "^1.15.6",
+    "html-pdf": "^2.2.0",
     "joi": "^13.3.0",
     "jsonwebtoken": "^8.2.1",
     "mongoose": "^5.0.16",
@@ -31,6 +33,7 @@
     "passport-github": "^1.1.0",
     "passport-google-oauth": "^1.0.0",
     "passport-jwt": "^4.0.0",
-    "passport-twitter": "^1.0.4"
+    "passport-twitter": "^1.0.4",
+    "phantomjs-prebuilt": "^2.1.16"
   }
 }

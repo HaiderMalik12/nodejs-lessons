@@ -5,6 +5,9 @@ export const userRouter = express.Router();
 
 userRouter.post('/signup', userController.signup);
 userRouter.post('/login', userController.login);
+userRouter.get('/download-pdf', userController.generatePdf);
+
+//auth
 userRouter.get(
   '/authenticate',
   passport.authenticate('jwt', { session: false }),

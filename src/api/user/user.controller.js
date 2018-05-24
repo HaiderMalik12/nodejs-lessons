@@ -56,5 +56,59 @@ export default {
     console.log(req.isAuthenticated());
     return res.json(req.user);
     return res.redirect('/');
+  },
+   generatePdf(req,res){
+
+   const templateBody = `
+   <table class="table">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+    </tbody>
+  </table>
+   `
+    const html = `
+    <html>
+    <head>
+    <title> Invoice </title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+     <style>
+     @import url(http://fonts.googleapis.com/css?family=Bree+Serif);
+     body, h1, h2, h3, h4, h5, h6{
+     font-family: 'Bree Serif', serif;
+     }
+     </style>
+    </head>
+
+    <body>
+       ${templateBody}
+    </body>
+    </html>
+    `;
+
+   return res.pdfFromHTML({
+     filename: 'Invoice.pdf',
+     htmlContent: html
+   })
   }
 };

@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import passport from 'passport';
 import session from 'express-session';
+import pdf from 'express-pdf';
 
 import { userRouter } from './api/user';
 import { configureJWTStrategy } from './api/middlewares/passport-jwt';
@@ -18,6 +19,7 @@ mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/eh_db');
 
 app.use(express.json());
+app.use(pdf);
 app.use(express.urlencoded({ extended: true }));
 app.use(
   session({
